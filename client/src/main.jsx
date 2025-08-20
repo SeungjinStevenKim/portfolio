@@ -6,6 +6,7 @@ import About from "./pages/About.jsx";
 import Projects from "./pages/Projects.jsx";
 import Experience from "./pages/Experience.jsx";
 import Contact from "./pages/Contact.jsx";
+import "./styles.css";
 
 const router = createBrowserRouter([
   {

@@ -8,7 +8,7 @@ export default function Contact() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Submitting...");
+    setStatus("Submitting…");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -22,52 +22,53 @@ export default function Contact() {
       } else {
         setStatus("Something went wrong. Please try again.");
       }
-    } catch (err) {
-      console.error(err);
+    } catch (e2) {
       setStatus("Network error. Please try again.");
     }
   };
 
   return (
-    <section>
-      <h1 style={{ marginTop: 0 }}>Contact</h1>
-      <p style={{ color: "#374151" }}>
-        Want to collaborate or have a question? Send a message below.
-      </p>
-      <form onSubmit={onSubmit} style={{ display: "grid", gap: 12, maxWidth: 560 }}>
+    <section className="section card" id="contact">
+      <h1>Contact</h1>
+      <p>Want to collaborate or have a question? Send a message below.</p>
+      <form onSubmit={onSubmit} className="grid" style={{ gap: 12, maxWidth: 560, marginTop: 8 }}>
         <input
+          className="card"
           name="name"
           placeholder="Your name"
           value={form.name}
           onChange={onChange}
           required
-          style={{ padding: 12, border: "1px solid #e5e7eb", borderRadius: 10 }}
+          style={{ padding: 12 }}
         />
         <input
+          className="card"
           name="email"
           type="email"
           placeholder="Your email"
           value={form.email}
           onChange={onChange}
           required
-          style={{ padding: 12, border: "1px solid #e5e7eb", borderRadius: 10 }}
+          style={{ padding: 12 }}
         />
         <textarea
+          className="card"
           name="message"
           placeholder="Your message"
           rows={6}
           value={form.message}
           onChange={onChange}
           required
-          style={{ padding: 12, border: "1px solid #e5e7eb", borderRadius: 10, resize: "vertical" }}
+          style={{ padding: 12, resize: "vertical" }}
         />
         <button
           type="submit"
-          style={{ padding: "10px 14px", border: "1px solid #111827", borderRadius: 10, background: "#111827", color: "white", cursor: "pointer" }}
+          className="badge"
+          style={{ padding: "10px 14px", cursor: "pointer", borderColor: "#334155", color: "white" }}
         >
           Send
         </button>
-        {status ? <div style={{ color: "#374151" }}>{status}</div> : null}
+        {status ? <div style={{ color: "#9ca3af" }}>{status}</div> : null}
       </form>
     </section>
   );

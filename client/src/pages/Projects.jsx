@@ -1,34 +1,46 @@
 import React, { useEffect, useState } from "react";
 
+function ProjectCard({ title, desc, stack, url }) {
+  return (
+    <article className="card" style={{ display: "grid", gap: 6 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
+        <h3 style={{ margin: 0 }}>{title}</h3>
+        <a href={url} target="_blank" rel="noreferrer" className="badge">Open</a>
+      </div>
+      {desc ? <p style={{ margin: 0, color: "#9ca3af" }}>{desc}</p> : null}
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
+        {stack.map((s, i) => <span key={i} className="badge">{s}</span>)}
+      </div>
+    </article>
+  );
+}
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/projects")
       .then((r) => r.json())
-      .then((data) => setProjects(data))
-      .catch(console.error)
-      .finally(() => setLoading(false));
+      .then((data) => setProjects(
+        data.map(p => ({ ...p, desc: p.desc ?? "Project description coming soon." }))
+      ))
+      .catch(console.error);
   }, []);
 
   return (
-    <section>
-      <h1 style={{ marginTop: 0 }}>Projects</h1>
-      {loading ? <p>Loading projects…</p> : null}
-      <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: 12 }}>
-        {projects.map((p) => (
-          <li key={p.id} style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: 16 }}>
-            <h3 style={{ margin: "0 0 6px" }}>{p.title}</h3>
-            <div style={{ fontSize: 14, color: "#4b5563" }}>
-              Tech stack: {p.stack.join(", ")}
-            </div>
-            <div style={{ marginTop: 8 }}>
-              <a href={p.url} target="_blank" rel="noreferrer">Open</a>
-            </div>
-          </li>
+    <section className="section" id="projects">
+      <h1>Projects</h1>
+      <div className="grid cols-2" style={{ marginTop: 8 }}>
+        {projects.map(p => (
+          <ProjectCard
+            key={p.id}
+            title={p.title}
+            desc={p.desc}
+            stack={p.stack}
+            url={p.url}
+          />
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
