@@ -127,7 +127,7 @@ export default function Sidebar({ onClose }) {
         <div className="flex flex-col space-y-2">
           <a
             className="pill w-full justify-start"
-            href="https://github.com/yourname"
+            href="https://github.com/SeungjinStevenKim/portfolio"
             target="_blank"
             rel="noreferrer"
           >
