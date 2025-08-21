@@ -21,7 +21,19 @@ console.log(`🚀 Starting server on port: ${process.env.PORT || '5000'}`);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'http://localhost:5173', // Local development
+    'https://portfolio-zeta-smoky-u4kest6im2.vercel.app', // Production frontend
+    /^https:\/\/.*\.vercel\.app$/ // Any Vercel preview deployments
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-admin-key']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
