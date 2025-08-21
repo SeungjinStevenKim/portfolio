@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: portfolio-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_HOST
+        fromDatabase:
+          name: portfolio-mysql
+          property: host
+      - key: DB_USER
+        fromDatabase:
+          name: portfolio-mysql
+          property: username
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: portfolio-mysql
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: portfolio-mysql
+          property: name
+      - key: DB_PORT
+        fromDatabase:
+          name: portfolio-mysql
+          property: port
+      - key: ADMIN_API_KEY
+        generateValue: true
+
+  - type: web
+    name: portfolio-frontend
+    env: static
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://portfolio-backend.onrender.com
+
+databases:
+  - name: portfolio-mysql
+    databaseName: portfolio_db
+    user: portfolio_user
+    plan: free

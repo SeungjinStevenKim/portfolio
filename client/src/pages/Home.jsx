@@ -15,13 +15,15 @@ export default function Home() {
     
     const fetchData = async () => {
       try {
+        const apiUrl = import.meta.env.VITE_API_URL || '';
+        
         // Projects 데이터 가져오기
-        const projectsResponse = await fetch("/api/projects");
+        const projectsResponse = await fetch(`${apiUrl}/api/projects`);
         if (!projectsResponse.ok) throw new Error(`Projects HTTP ${projectsResponse.status}`);
         const projectsData = await projectsResponse.json();
         
         // Experience 데이터 가져오기
-        const experienceResponse = await fetch("/api/experience");
+        const experienceResponse = await fetch(`${apiUrl}/api/experience`);
         if (!experienceResponse.ok) throw new Error(`Experience HTTP ${experienceResponse.status}`);
         const experienceData = await experienceResponse.json();
         

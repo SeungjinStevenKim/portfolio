@@ -48,9 +48,10 @@ export default function Admin() {
   const fetchData = async () => {
     setLoading(true);
     try {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
       const [expRes, projRes] = await Promise.all([
-        fetch('/api/experience'),
-        fetch('/api/projects')
+        fetch(`${apiUrl}/api/experience`),
+        fetch(`${apiUrl}/api/projects`)
       ]);
       
       if (expRes.ok) {
@@ -88,7 +89,8 @@ export default function Admin() {
           }))
       };
 
-      const response = await fetch('/api/experience', {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/experience`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +114,8 @@ export default function Admin() {
 
   const addProject = async () => {
     try {
-      const response = await fetch('/api/projects', {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/projects`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -156,7 +159,8 @@ export default function Admin() {
           }))
       };
 
-      const response = await fetch(`/api/experience/${editingExpId}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/experience/${editingExpId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -202,7 +206,8 @@ export default function Admin() {
     if (!confirm('Are you sure you want to delete?')) return;
     
     try {
-      const response = await fetch(`/api/experience/${id}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/experience/${id}`, {
         method: 'DELETE',
         headers: { 'x-admin-key': adminKey }
       });
@@ -223,7 +228,8 @@ export default function Admin() {
     if (!confirm('Are you sure you want to delete?')) return;
     
     try {
-      const response = await fetch(`/api/projects/${id}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/projects/${id}`, {
         method: 'DELETE',
         headers: { 'x-admin-key': adminKey }
       });
