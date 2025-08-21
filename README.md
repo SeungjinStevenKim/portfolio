@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my experience and skills as a 
 
 ## 🚀 Live Demo
 
-- **Portfolio**: [Coming Soon]
+- **Portfolio**: https://portfolio-zeta-smoky-u4kest6im2.vercel.app/
 - **Admin Panel**: `/admin` (Protected with API key)
 
 ## 🛠️ Tech Stack
