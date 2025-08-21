@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
 import AuthForm from '../components/admin/AuthForm';
 import AdminTabs from '../components/admin/AdminTabs';
 import ExperienceForm from '../components/admin/ExperienceForm';
@@ -287,9 +289,17 @@ export default function Admin() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">Admin Panel</h1>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">Manage your portfolio content</p>
+        <div className="mb-8 relative">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">Admin Panel</h1>
+            <p className="text-slate-600 dark:text-slate-400 mt-2">Manage your portfolio content</p>
+          </div>
+          <Link
+            to="/"
+            className="absolute top-0 right-0 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors inline-flex items-center gap-2"
+          >
+            <FaHome /> Back to Home
+          </Link>
         </div>
 
         {message && (
