@@ -7,7 +7,7 @@ import { FaBars } from "react-icons/fa";
 export default function App() {
   const [open, setOpen] = React.useState(false);
   const location = useLocation();
-  const isAdminPage = location.pathname === '/admin';
+  const isAdminPage = location.pathname === '/admin' || location.hash === '#/admin';
 
   // ESC로 드로어 닫기
   React.useEffect(() => {

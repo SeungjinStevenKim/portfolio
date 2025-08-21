@@ -59,7 +59,7 @@ export default function Sidebar({ onClose }) {
         {/* Admin Button */}
         <a
           className="pill w-full justify-center mt-3 text-xs"
-          href="/admin"
+          href="#/admin"
         >
           <FaCog /> Admin Panel
         </a>
