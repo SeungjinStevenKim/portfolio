@@ -22,12 +22,6 @@ A modern, responsive portfolio website showcasing my experience and skills as a 
 - **MySQL** - Relational database
 - **mysql2** - MySQL client for Node.js
 
-### Development Tools
-- **Concurrently** - Run multiple commands simultaneously
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
-- **Autoprefixer** - CSS vendor prefixing
-
 ## ✨ Features
 
 ### 🎨 Modern UI/UX
