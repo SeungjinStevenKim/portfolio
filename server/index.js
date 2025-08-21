@@ -40,6 +40,22 @@ app.get("/", (req, res) => {
   });
 });
 
+// Admin authentication endpoint
+app.post("/api/admin/auth", (req, res) => {
+  const adminKey = req.headers['x-admin-key'];
+  
+  if (!adminKey || adminKey !== process.env.ADMIN_API_KEY) {
+    return res.status(401).json({ 
+      error: 'Invalid admin key' 
+    });
+  }
+  
+  res.json({ 
+    status: "success", 
+    message: "Admin authentication successful" 
+  });
+});
+
 
 
 // API Routes

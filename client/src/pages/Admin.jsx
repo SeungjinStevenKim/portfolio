@@ -35,13 +35,39 @@ export default function Admin() {
     order_index: 0
   });
 
-  const authenticate = () => {
-    if (adminKey.trim()) {
-      setIsAuthenticated(true);
-      setMessage('Authentication successful!');
-      setTimeout(() => setMessage(''), 3000);
-    } else {
+  const authenticate = async () => {
+    if (!adminKey.trim()) {
       setMessage('Please enter admin key.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${apiUrl}/api/admin/auth`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': adminKey
+        }
+      });
+
+      if (response.status === 401) {
+        setMessage('Invalid admin key. Please try again.');
+        setIsAuthenticated(false);
+      } else if (response.ok) {
+        setIsAuthenticated(true);
+        setMessage('Authentication successful!');
+        setTimeout(() => setMessage(''), 3000);
+      } else {
+        setMessage('Authentication failed. Please check your admin key.');
+        setIsAuthenticated(false);
+      }
+    } catch (error) {
+      setMessage('Connection error. Please check your internet connection.');
+      setIsAuthenticated(false);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -253,6 +279,7 @@ export default function Admin() {
         setAdminKey={setAdminKey}
         authenticate={authenticate}
         message={message}
+        loading={loading}
       />
     );
   }

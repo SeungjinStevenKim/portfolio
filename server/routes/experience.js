@@ -4,7 +4,7 @@ import { requireAdminKey } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// GET all experience
+// GET all experience (Public)
 router.get('/', async (req, res) => {
   try {
     const [experiences] = await pool.query(`

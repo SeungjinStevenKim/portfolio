@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AuthForm({ adminKey, setAdminKey, authenticate, message }) {
+export default function AuthForm({ adminKey, setAdminKey, authenticate, message, loading }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -42,9 +42,10 @@ export default function AuthForm({ adminKey, setAdminKey, authenticate, message 
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              disabled={loading}
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Access Admin Panel
+              {loading ? 'Authenticating...' : 'Access Admin Panel'}
             </button>
           </div>
         </form>
