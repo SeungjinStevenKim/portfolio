@@ -3,7 +3,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const dbConfig = {
+// Railway MySQL URL connection (preferred method)
+const mysqlUrl = process.env.MYSQL_URL;
+
+// Fallback to individual connection parameters
+const dbConfig = mysqlUrl ? {
+  uri: mysqlUrl,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+} : {
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
