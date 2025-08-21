@@ -9,24 +9,14 @@ import projectRoutes from "./routes/projects.js";
 // Load environment variables
 dotenv.config();
 
-// Validate required environment variables
-const requiredEnvVars = ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'];
-const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
-
-if (missingEnvVars.length > 0) {
-  console.error('❌ Missing required environment variables:', missingEnvVars);
-  console.error('Please check your .env file or deployment configuration');
+// Check for database connection
+if (!process.env.MYSQL_URL && !process.env.DB_HOST) {
+  console.warn('⚠️  Database connection variables not found');
 }
 
-// Debug: Log all database-related environment variables
-console.log('🔍 Database Environment Variables:');
-console.log('   MYSQL_URL:', process.env.MYSQL_URL ? 'Set' : 'Not set');
-console.log('   DB_HOST:', process.env.DB_HOST || 'Not set');
-console.log('   DB_USER:', process.env.DB_USER || 'Not set');
-console.log('   DB_NAME:', process.env.DB_NAME || 'Not set');
-console.log('   DB_PORT:', process.env.DB_PORT || 'Not set');
-console.log('   NODE_ENV:', process.env.NODE_ENV || 'development');
-console.log('   PORT:', process.env.PORT || '5000');
+// Log environment info
+console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+console.log(`🚀 Starting server on port: ${process.env.PORT || '5000'}`);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -50,41 +40,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// Database test endpoint
-app.get("/api/test-db", async (req, res) => {
-  try {
-    const { pool } = await import('./config/database.js');
-    const connection = await pool.getConnection();
-    const [tables] = await connection.query('SHOW TABLES');
-    connection.release();
-    
-    res.json({
-      status: "success",
-      message: "Database connection successful",
-      tables: tables.map(row => Object.values(row)[0]),
-      env: {
-        dbHost: process.env.DB_HOST,
-        dbName: process.env.DB_NAME,
-        dbUser: process.env.DB_USER,
-        dbPort: process.env.DB_PORT,
-        mysqlUrl: process.env.MYSQL_URL ? 'Set' : 'Not set'
-      }
-    });
-  } catch (error) {
-    res.status(500).json({
-      status: "error",
-      message: "Database connection failed",
-      error: error.message,
-      env: {
-        dbHost: process.env.DB_HOST,
-        dbName: process.env.DB_NAME,
-        dbUser: process.env.DB_USER,
-        dbPort: process.env.DB_PORT,
-        mysqlUrl: process.env.MYSQL_URL ? 'Set' : 'Not set'
-      }
-    });
-  }
-});
+
 
 // API Routes
 app.use("/api/experience", experienceRoutes);
