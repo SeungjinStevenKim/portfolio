@@ -29,8 +29,6 @@ A modern, responsive portfolio website showcasing my experience and skills as a 
 - **Dark/Light Mode** - Toggle between themes with smooth transitions
 - **Smooth Animations** - Fade-in, slide-up, and scale animations
 - **Glassmorphism Effects** - Modern translucent design elements
-- **Gradient Text** - Eye-catching section titles
-- **Custom Scrollbar** - Styled scrollbar with hover effects
 
 ### 📱 Single Page Application
 - **Smooth Scrolling** - Navigate between sections seamlessly
@@ -42,21 +40,18 @@ A modern, responsive portfolio website showcasing my experience and skills as a 
 - **Real-time Updates** - Changes reflect immediately
 - **Admin Panel** - Secure content management interface
 - **CRUD Operations** - Create, Read, Update, Delete experience and projects
-- **Technologies Integration** - Brittany Chiang style technology tags for each position
 
 ### 🔐 Admin Features
 - **Secure Authentication** - API key-based admin access
 - **Experience Management** - Add, edit, delete work experience with technologies
 - **Project Management** - Manage portfolio projects
 - **Nested Data Support** - Multiple positions per company with job descriptions
-- **Intuitive Interface** - User-friendly forms with validation
 - **Modular Components** - Well-organized, maintainable code structure
 
 ### 🎯 Key Sections
 1. **About Me** - Personal introduction and technical skills
 2. **Experience** - Professional work history with technology stacks
 3. **Projects** - Showcase of technical projects (Coming Soon)
-4. **Contact** - Get in touch section
 
 ## 🚀 Getting Started
 
@@ -134,8 +129,6 @@ portfolio/
 #### Styling (`client/src/index.css`)
 - Global CSS variables for theming
 - Custom animations (fade-in, slide-up, scale-in)
-- Glassmorphism effects
-- Custom scrollbar styling
 - Responsive design utilities
 
 ### Backend Structure Details
