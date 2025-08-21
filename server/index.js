@@ -16,8 +16,13 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-// Test database connection on startup
-testConnection();
+// Test database connection on startup (temporarily disabled for deployment)
+// testConnection();
+
+// Basic health check route
+app.get("/", (req, res) => {
+  res.json({ message: "Portfolio API is running!", status: "healthy" });
+});
 
 // API Routes
 app.use("/api/experience", experienceRoutes);
