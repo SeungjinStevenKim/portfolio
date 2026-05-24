@@ -1,16 +1,11 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Portfolio project with client and server",
+  "description": "Static portfolio site (React + Vite)",
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:server": "cd server && npm run dev",
-    "dev:client": "cd client && npm run dev",
+    "dev": "cd client && npm run dev",
     "build": "cd client && npm run build",
-    "start": "cd server && npm start",
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+    "preview": "cd client && npm run preview",
+    "install:all": "cd client && npm install"
   }
 }

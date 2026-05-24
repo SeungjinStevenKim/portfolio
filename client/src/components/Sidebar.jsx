@@ -1,6 +1,6 @@
 // client/src/components/Sidebar.jsx
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun, FaTimes, FaCog } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun, FaTimes } from "react-icons/fa";
 
 export default function Sidebar({ onClose }) {
   const [activeSection, setActiveSection] = React.useState('about');
@@ -41,7 +41,7 @@ export default function Sidebar({ onClose }) {
       <div className="mb-6 text-center">
         <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full border-4 border-slate-200 dark:border-slate-700 shadow-lg">
           <img
-            src="/profile.jpg"
+            src={`${import.meta.env.BASE_URL}profile.jpg`}
             alt="Seungjin Kim"
             className="h-full w-full object-cover transition-transform hover:scale-105"
             onError={(e) => {
@@ -55,14 +55,6 @@ export default function Sidebar({ onClose }) {
         </div>
         <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-1">Seungjin Kim</h1>
         <p className="text-sm text-slate-600 dark:text-slate-400">Software Engineer</p>
-        
-        {/* Admin Button */}
-        <a
-          className="pill w-full justify-center mt-3 text-xs"
-          href="#/admin"
-        >
-          <FaCog /> Admin Panel
-        </a>
       </div>
 
       {/* Theme Toggle Button */}

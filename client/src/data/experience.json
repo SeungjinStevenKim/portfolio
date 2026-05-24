@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "company": "Intel Corporation",
+    "location": "Chandler, Arizona",
+    "positions": [
+      {
+        "title": "Full-stack Software Engineer",
+        "period": "November 2024 – July 2025",
+        "technologies": "Vue.js, PHP, PostgreSQL, GitHub Actions, RESTful APIs",
+        "bullets": [
+          "Built cross-departmental task tracking application using Vue.js and PHP (OOP), optimized PostgreSQL schema to enhance foundry process visibility, reduced query time by 20%, enabled real-time updates through RESTful APIs.",
+          "Implemented CI/CD pipeline using GitHub Actions, reduced deployment time by 40%, increased automated test coverage to 95%, ensuring faster and more reliable production releases.",
+          "Complied with Intel security protocols to eliminate critical code vulnerabilities, prevented potential service downtime, improved API throughput during overload scenarios."
+        ]
+      },
+      {
+        "title": "Full-stack Software Engineer Graduate Intern",
+        "period": "January 2024 – October 2024",
+        "technologies": "Next.js, Docker, React, Node.js",
+        "bullets": [
+          "Migrated legacy internal tools to Next.js, modernized UI/UX and backend logic, improved load speed, achieved 500+ active user adoption within 3 months.",
+          "Led Dockerization of team's major projects, reduced onboarding setup time from one day to under 2 hours, enabling consistent deployment across development, staging, and production."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "company": "Gen Digital Inc. (NortonLifeLock)",
+    "location": "Tempe, Arizona",
+    "positions": [
+      {
+        "title": "Software Engineer II",
+        "period": "January 2022 – June 2023",
+        "technologies": "React, Redux, Adobe Target, NPM, Webpack, JavaScript",
+        "bullets": [
+          "Contributed to integrating acquired company (Avast) payment pages into existing eStore platform using React + Redux, optimized performance and user experience, improved payment conversion rate by 6%.",
+          "Implemented JavaScript DOM manipulation scripts in Adobe Target to resolve high-priority production issues during eStore checkout, minimized cart abandonment rates.",
+          "Introduced NPM and Webpack to modernize legacy codebase, modularization and bundling, reduced load times and deployment complexity.",
+          "Led A/B testing initiatives for payment pages, doubled experiment count and accelerated iteration speed using Adobe Target, made significant contribution to conversion rate increases."
+        ]
+      },
+      {
+        "title": "Associate Software Engineer",
+        "period": "September 2020 - December 2021",
+        "technologies": "React, Redux, Immutable.js, CSS, Flexbox, Adobe Analytics, JIRA",
+        "bullets": [
+          "Created various responsive components to enhance Global eStore payment pages using technologies like React, Redux, Immutable.js, CSS, Flexbox.",
+          "Refactored Adobe Analytics reporting code into reusable functions, reduced report maintenance time by 50%.",
+          "Learned agile methodologies, collaborated cross-functionally with PMs and QA engineers, used JIRA for task management, built strong foundation for cross-team collaboration and iterative development."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "company": "Tech Savvy Mobile Co., Ltd.",
+    "location": "Seoul, Korea",
+    "positions": [
+      {
+        "title": "Software Engineer",
+        "period": "March 2016 – July 2017",
+        "technologies": "Angular.js, JavaScript, jQuery, Ajax, Node.js, Bootstrap, MySQL",
+        "bullets": [
+          "Developed voice recognition-based exam module using Angular.js that converts user voice to text and compares with database answers, for practical educational web applications.",
+          "Built practical Korean SAT preparation web application with Role-Based Access Control (RBAC), providing secure and personalized access for students and instructors; used JavaScript, jQuery, Ajax, Node.js, Bootstrap, MySQL to improve content delivery speed and user experience."
+        ]
+      }
+    ]
+  }
+]

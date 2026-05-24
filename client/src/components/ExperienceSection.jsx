@@ -1,34 +1,17 @@
 import React from 'react';
 
-export default function ExperienceSection({ experience, loading, err }) {
+export default function ExperienceSection({ experience }) {
   return (
     <section id="experience" className="card card-hover slide-up">
       <h1 className="section-title gradient-text">Experience</h1>
-      
-      {loading && (
-        <div className="mt-4 space-y-3">
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="h-32 animate-pulse rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800/50"
-            />
-          ))}
-        </div>
-      )}
 
-      {err && !loading && (
-        <div className="mt-4 rounded-lg border border-rose-300 bg-rose-50 p-4 text-rose-700 dark:border-rose-900/50 dark:bg-rose-900/20 dark:text-rose-200">
-          Failed to load experience: {err}
-        </div>
-      )}
-
-      {!loading && !err && experience.length === 0 && (
+      {experience.length === 0 && (
         <div className="mt-4 text-slate-500 dark:text-slate-400">
           No experience data available.
         </div>
       )}
 
-      {!loading && !err && experience.length > 0 && (
+      {experience.length > 0 && (
         <ul className="mt-6 grid gap-6">
           {experience.map((company, companyIndex) => (
             <li key={company.id} className="scale-in" style={{ animationDelay: `${companyIndex * 0.2}s` }}>

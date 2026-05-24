@@ -16,15 +16,16 @@ if (!process.env.MYSQL_URL && !process.env.DB_HOST) {
 
 // Log environment info
 console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-console.log(`🚀 Starting server on port: ${process.env.PORT || '5000'}`);
+console.log(`🚀 Starting server on port: ${process.env.PORT || '5001'}`);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // CORS configuration
 const corsOptions = {
   origin: [
-    'http://localhost:5173', // Local development
+    'http://localhost:5173', // Local development (default Vite)
+    'http://localhost:5180', // Local development (alternate port)
     'https://portfolio-zeta-smoky-u4kest6im2.vercel.app', // Production frontend
     /^https:\/\/.*\.vercel\.app$/ // Any Vercel preview deployments
   ],

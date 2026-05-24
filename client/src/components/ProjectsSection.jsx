@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ProjectCard({ title, description, technologies, github_url, live_url, image_url, featured }) {
+function ProjectCard({ title, description, technologies, github_url, live_url, featured }) {
   const techArray = technologies ? technologies.split(',').map(tech => tech.trim()) : [];
-  
+
   return (
     <article className="card card-hover hover-lift group">
       <div className="flex items-start justify-between gap-3 mb-4">
@@ -56,30 +56,12 @@ function ProjectCard({ title, description, technologies, github_url, live_url, i
   );
 }
 
-export default function ProjectsSection({ projects, loading, err }) {
+export default function ProjectsSection({ projects }) {
   return (
     <section id="projects" className="card card-hover slide-up">
       <h1 className="section-title gradient-text">Projects</h1>
 
-      {/* 상태 표시 */}
-      {loading && (
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {[0, 1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="h-28 animate-pulse rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800/50"
-            />
-          ))}
-        </div>
-      )}
-
-      {err && !loading && (
-        <div className="mt-4 rounded-lg border border-rose-300 bg-rose-50 p-4 text-rose-700 dark:border-rose-900/50 dark:bg-rose-900/20 dark:text-rose-200">
-          Failed to load projects: {err}
-        </div>
-      )}
-
-      {!loading && !err && projects.length === 0 && (
+      {projects.length === 0 && (
         <div className="mt-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
             <svg className="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,12 +72,12 @@ export default function ProjectsSection({ projects, loading, err }) {
             Projects Coming Soon!
           </h3>
           <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto">
-            I'm currently working on some exciting projects. Check back soon to see what I've been building!
+            I&apos;m currently working on some exciting projects. Check back soon to see what I&apos;ve been building!
           </p>
         </div>
       )}
 
-      {!loading && !err && projects.length > 0 && (
+      {projects.length > 0 && (
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {projects.map((p, index) => (
             <div key={p.id} className="scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -105,7 +87,6 @@ export default function ProjectsSection({ projects, loading, err }) {
                 technologies={p.technologies}
                 github_url={p.github_url}
                 live_url={p.live_url}
-                image_url={p.image_url}
                 featured={p.featured}
               />
             </div>
