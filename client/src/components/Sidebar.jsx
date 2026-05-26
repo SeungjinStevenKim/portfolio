@@ -105,8 +105,11 @@ export default function Sidebar({ onClose }) {
           <button onClick={() => scrollToSection('experience')} className={navClass('experience')}>
             Experience
           </button>
-          <button onClick={() => scrollToSection('projects')} className={navClass('projects')}>
-            Projects
+          <button
+            onClick={() => scrollToSection("research")}
+            className={navClass("research")}
+          >
+            Research
           </button>
         </div>
       </nav>
