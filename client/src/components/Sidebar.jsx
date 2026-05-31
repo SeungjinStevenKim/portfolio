@@ -1,6 +1,6 @@
 // client/src/components/Sidebar.jsx
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun, FaTimes } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMoon, FaSun, FaTimes, FaGoogle } from "react-icons/fa";
 
 export default function Sidebar({ onClose }) {
   const [activeSection, setActiveSection] = React.useState('about');
@@ -88,7 +88,7 @@ export default function Sidebar({ onClose }) {
             Seungjin Kim
           </div>
           <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Full-stack software engineer passionate about continuous growth and innovation in technology.
+            First-year PhD student in AI and computer vision. Previously worked as a software engineer.
           </div>
         </div>
       </div>
@@ -138,7 +138,15 @@ export default function Sidebar({ onClose }) {
           </a>
           <a
             className="pill w-full justify-start"
-            href="mailto:kim.seungjin1221@gmail.com"
+            href="https://scholar.google.com/citations?user=guIEKFkAAAAJ&hl=en&authuser=4"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGoogle /> Google Scholar
+          </a>
+          <a
+            className="pill w-full justify-start"
+            href="mailto:skim27@uwyo.edu"
           >
             <FaEnvelope /> Email
           </a>
